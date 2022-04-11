@@ -12,7 +12,7 @@ require('dotenv').config({path : ".env"})
 // EXPORT
 //---------------------------------
 const app = express();
-const port = process.env.PORT || 6001
+const port = process.env.PORT || 6002
 require('./config/config');
 
 app.get("/", (req,res)=>{
