@@ -12,12 +12,18 @@ require('dotenv').config({path : ".env"})
 // EXPORT
 //---------------------------------
 const app = express();
-const port = process.env.PORT || 6002
+const port = process.env.PORT || 6002;
+const authRouter = require('./api/routes/auth.routes');
 require('./config/config');
 
+//middlewares
+app.use(express.json());
+
+//routes
 app.get("/", (req,res)=>{
     res.send("ok");
 });
+app.use('/api/auth' , authRouter);
 
 //status
 app.use((req , res)=>{
