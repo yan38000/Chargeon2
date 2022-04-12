@@ -1,0 +1,65 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>350</x><y>130</y><w>210</w><h>100</h></coordinates><panel_attributes>_Borne_
+--
+NumSerie:  string &lt;&lt;ident&gt;&gt;
+type : char
+puissance : str &lt;&lt;foreign&gt;&gt;
+latitude : str
+longitude : str</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>320</y><w>170</w><h>70</h></coordinates><panel_attributes>_TarifWattage_
+--
+Wattage: str &lt;&lt;ident&gt;&gt; &lt;&lt;foreign&gt;&gt;
+Support: str &lt;&lt;ident&gt;&gt; &lt;&lt;foreign&gt;&gt;
+Tarif: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>310</y><w>210</w><h>70</h></coordinates><panel_attributes>_Puissance_
+--
+Label: str &lt;&lt;ident&gt;&gt;
+Wattage: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>340</x><y>410</y><w>210</w><h>70</h></coordinates><panel_attributes>_Support_
+--
+Label: str &lt;&lt;ident&gt;&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>130</x><y>380</y><w>230</w><h>110</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1..*
+
+</panel_attributes><additional_attributes>210;80;10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>30</x><y>0</y><w>210</w><h>120</h></coordinates><panel_attributes>_Technicien_
+--
+Num_Secu : int &lt;&lt;ident&gt;&gt;
+HabiliationB : int
+HabilitationH : int
+Nom : varchar
+Prenom : varchar
+tel : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>840</x><y>390</y><w>210</w><h>100</h></coordinates><panel_attributes>_Contrat_
+--
+id : int &lt;&lt;ident&gt;&gt;
+Client &lt;&lt;foreign&gt;&gt;
+Support &lt;&lt;foreign&gt;&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>537</x><y>10</y><w>210</w><h>90</h></coordinates><panel_attributes>_Devis_
+--
+id: int &lt;&lt;ident&gt;&gt;
+Contrat : &lt;&lt;foreign&gt;&gt;
+Borne: &lt;&lt;foreign&gt;&gt;
+Technicien : &lt;&lt;foreign&gt;&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>547</x><y>190</y><w>360</w><h>220</h></coordinates><panel_attributes>lt=-
+m1=0..*
+m2=0..1
+</panel_attributes><additional_attributes>10;20;320;20;320;200</additional_attributes></element><element><id>Relation</id><coordinates><x>537</x><y>450</y><w>320</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..*
+</panel_attributes><additional_attributes>10;20;300;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>840</x><y>600</y><w>210</w><h>70</h></coordinates><panel_attributes>_Client_
+--
+Num_Client : int &lt;&lt;ident&gt;&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>950</x><y>480</y><w>50</w><h>140</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1..*
+</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>30</y><w>330</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..*
+</panel_attributes><additional_attributes>10;20;310;20</additional_attributes></element><element><id>Relation</id><coordinates><x>740</x><y>50</y><w>280</w><h>360</h></coordinates><panel_attributes>lt=-
+m1=0..*
+m2=1
+</panel_attributes><additional_attributes>10;20;250;20;250;340</additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>330</y><w>200</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1..*
+
+</panel_attributes><additional_attributes>180;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>430</x><y>220</y><w>50</w><h>110</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..*
+
+</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>810</x><y>290</y><w>80</w><h>30</h></coordinates><panel_attributes>lt=.</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>608</x><y>270</y><w>210</w><h>70</h></coordinates><panel_attributes>_DetailContrat_
+--
+Borne &lt;&lt;foreign&gt;&gt;
+Contrat &lt;&lt;foreign&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
