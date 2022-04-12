@@ -9,7 +9,7 @@
 const {schemaLoginValidate} = require('../validations/auth.validations');
 const User = require('../models/auth.models');
 const bcrypt = require('bcrypt');
-const req = require('express/lib/request');
+
 
 
 module.exports.register = async(req , res) => {
@@ -17,11 +17,13 @@ module.exports.register = async(req , res) => {
         name : req.body.name,
         password : req.body.password
     });
-    try {
-        const saveUser = await user.save();
-    } catch (error) {
-        res.status(400).send(error);
-    };
+    try{
+        const addUser = await User.create(user);
+        res.status(201).json({addUser : "add successful"});
+    }
+    catch(err){
+        res.status(200).send({err});
+    }
 
 }
 module.exports.login = async(req , res) => {
