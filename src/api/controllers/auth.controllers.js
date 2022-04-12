@@ -9,14 +9,29 @@
 const {schemaLoginValidate} = require('../validations/auth.validations');
 const User = require('../models/auth.models');
 const bcrypt = require('bcrypt');
-
+const jwt = require('jsonwebtoken');
+require('dotenv').config({path : '.env'})
 
 
 module.exports.register = async(req , res) => {
-    const user = new User({
+   
+    //message de validation
+    const {error} = schemaLoginValidate(req.body);
+    if (error) return res.status(401).json(error.details[0].message);
+    
+    //verifier si le name existe
+    const nameExist = await User.findOne({name : req.body.name});
+    if(nameExist) return res.status(400).json("Le nom est invalide");
+
+    //hash le mot de passe
+    const salt = await bcrypt.genSalt(10);
+    const hashPassword = await bcrypt.hash(req.body.password, salt);
+
+    const user = ({
         name : req.body.name,
-        password : req.body.password
+        password : hashPassword
     });
+
     try{
         const addUser = await User.create(user);
         res.status(201).json({addUser : "add successful"});
@@ -29,15 +44,19 @@ module.exports.register = async(req , res) => {
 module.exports.login = async(req , res) => {
     //validation 
     const {error} = schemaLoginValidate(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error) return res.status(401).json(error.details[0].message);
 
         //check si le name existe
-        const nameExist = await User.findOne({name : req.body.name});
-        if(!nameExist) return res.status(400).send("Le nom est invalide");
+        const user = await User.findOne({name : req.body.name});
+        if(!user) return res.status(400).json("Le nom est introuvable");
 
         //check si le password est correct
         const validPass = await bcrypt.compare(req.body.password , user.password);
         if(!validPass) return res.status(400).send("Le mot de passe est invalide");
 
-        res.send('logiiin')
+        //creer et assigne un token
+        const token = jwt.sign(user.toJSON() , process.env.TOKEN);
+        res.send({token})
+
+        //res.send('logiiin')
 };

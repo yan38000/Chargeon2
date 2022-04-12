@@ -11,8 +11,8 @@ const Joi = require('joi');
 
 
 
-const schemaLoginValidate = data =>{
-    const schema = {
+const schemaLoginValidate = (user) =>{
+    const schema = Joi.object({
         name : Joi.string()
             .min(3)
             .max(10)
@@ -21,8 +21,8 @@ const schemaLoginValidate = data =>{
             .min(6)
             .max(16)
             .required()
-    };
-    return Joi.valid(data , schema);
+    });
+    return schema.validate(user);
 };
 
 

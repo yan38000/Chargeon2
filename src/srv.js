@@ -14,14 +14,18 @@ require('dotenv').config({path : ".env"})
 const app = express();
 const port = process.env.PORT || 6002;
 const authRouter = require('./api/routes/auth.routes');
+
+const {auth} = require('./api/middlewares/auth.middlewares');
+
 require('./config/config');
 
 //middlewares
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 //routes
-app.get("/", (req,res)=>{
-    res.send("ok");
+app.get("/",auth , (req,res)=>{
+    res.send(req.user);
 });
 app.use('/api/auth' , authRouter);
 
