@@ -24,7 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 //routes
-app.get("/",auth , (req,res)=>{
+app.get("/", auth , (req,res)=>{
     res.send(req.user);
 });
 app.use('/api/auth' , authRouter);
