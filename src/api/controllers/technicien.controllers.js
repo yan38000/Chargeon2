@@ -13,7 +13,7 @@
  * @param {*} res 
  */
 module.exports.addTechnicien = async(req , res) =>{
-    res.json('add');
+    
 };
 
 /**

@@ -12,13 +12,13 @@ const technicienrSchema = new mongoose.Schema({
     nom : {
         type : String,
         required : true,
-        min : 3,
+        min : 1,
         max : 256
     },
     prenom : {
         type : String,
         required : true,
-        min : 6,
+        min : 1,
         max : 256
     },
     telephone : {
@@ -27,11 +27,17 @@ const technicienrSchema = new mongoose.Schema({
         min : 10,
         max : 10
     },
-    habilitation : {
-        type : String,
-        required : true,
-        min : 1,
-        max : 1
+    habilitationB : {
+        type : Number,
+        required : false,
+        min : 0,
+        max : 3
+    },
+    habilitationH : {
+        type : Number,
+        required : false,
+        min : 0,
+        max : 3
     }
 });
 
