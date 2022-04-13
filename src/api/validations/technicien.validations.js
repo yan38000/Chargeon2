@@ -20,8 +20,8 @@ const schemaTechnicienValidate = (addTechnicien) =>{
             .max(256)
             .required(),
         telephone : Joi.number()
-            .min(1)
-            .max(20)
+            //.min(1)
+            //.max(20)
             .required(),
         habilitationB : Joi.number()
             .min(0)

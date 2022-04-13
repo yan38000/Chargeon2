@@ -15,15 +15,15 @@ const {schemaTechnicienValidate} = require('../validations/technicien.validation
  * @param {*} res 
  */
 module.exports.addTechnicien = async(req , res) =>{
-    /*
+    
     //message de validation
     const {error} = schemaTechnicienValidate(req.body);
     if (error) return res.status(401).json(error.details[0].message);
 
     //verifier si le numero de telephone
     const telephoneExist = await technicienModels.findOne({telephone : req.body.telephone});
-    if(telephoneExist) return res.status(400).json("Le numero de telephone es déja utliser");
-    */
+    if(telephoneExist) return res.status(400).json("Le numero de telephone est déja utliser");
+    
     //const {nom,prenom, telephone, habilitationB , habilitationH } = req.body
     const addTechnicien = ({
         nom : req.body.nom,
@@ -44,7 +44,12 @@ module.exports.addTechnicien = async(req , res) =>{
  * @param {*} res 
  */
  module.exports.updateTechnicien = async(req , res) =>{
-    res.json('update');
+    const updateTechnicien = {_id : req.params.id};
+
+    technicienModels.findByIdAndUpdate(updateTechnicien , req.body, (err ,techniciens)=>{
+        if (!err) res.json({technicien : "update successful" , techniciens});
+        else return res.status(400).send(req.params.id);
+    })
 };
 
 /**
@@ -53,7 +58,12 @@ module.exports.addTechnicien = async(req , res) =>{
  * @param {*} res 
  */
  module.exports.deleteTechnicien = async(req , res) =>{
-    res.json('delete');
+    const deleteTechnicien = { _id : req.params.id};
+
+    technicienModels.findByIdAndDelete(deleteTechnicien , req.body, (err ,techniciens)=>{
+        if (!err) res.json({technicien : "delete successful" , techniciens});
+        else return res.status(400).send(req.params.id);
+    })
 };
 
 /**
@@ -62,7 +72,8 @@ module.exports.addTechnicien = async(req , res) =>{
  * @param {*} res 
  */
  module.exports.AllTechnicien = async(req , res) =>{
-    res.json('all');
+    const allTechnicien = await technicienModels.find().select();
+    res.status(200).json(allTechnicien);
 };
 
 /**
@@ -71,5 +82,10 @@ module.exports.addTechnicien = async(req , res) =>{
  * @param {*} res 
  */
  module.exports.idTechnicien = async(req , res) =>{
-    res.json('get id');
+    const allIdTechnicien = { _id : req.params.id};
+
+    technicienModels.findById(allIdTechnicien, (err , techniciens)=>{
+        if (!err) res.json({technicien : "id successful" , techniciens});
+        else return res.status(400).send(req.params.id);
+    })
 };
