@@ -22,19 +22,19 @@ const technicienrSchema = new mongoose.Schema({
         max : 256
     },
     telephone : {
-        type : Number,
+        type : String,
         required : true,
-        min : 10,
-        max : 10
+        min : 1,
+        max : 50
     },
     habilitationB : {
-        type : Number,
+        type : String,
         required : false,
         min : 0,
         max : 3
     },
     habilitationH : {
-        type : Number,
+        type : String,
         required : false,
         min : 0,
         max : 3

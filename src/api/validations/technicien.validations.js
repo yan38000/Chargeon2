@@ -9,7 +9,7 @@
 const Joi = require('joi');
 
 
-const schemaTechnicienValidate = (technicien) =>{
+const schemaTechnicienValidate = (addTechnicien) =>{
     const schema = Joi.object({
         nom : Joi.string()
             .min(1)
@@ -19,10 +19,20 @@ const schemaTechnicienValidate = (technicien) =>{
             .min(1)
             .max(256)
             .required(),
+        telephone : Joi.number()
+            .min(1)
+            .max(20)
+            .required(),
+        habilitationB : Joi.number()
+            .min(0)
+            .max(3),
+        habilitationH : Joi.number()
+            .min(0)
+            .max(3)
         
     });
-    return schema.validate(technicien);
+    return schema.validate(addTechnicien);
 };
 
 
-module.exports = {schemaLoginValidate}
+module.exports = {schemaTechnicienValidate}

@@ -16,6 +16,9 @@ const port = process.env.PORT || 6002
 const technicienRoute = require('./api/routes/technicien.routes');
 require('./config/config');
 
+//midlewares
+app.use(express.json());
+//app.use(express.urlencoded({extended : true}));
 //route
 app.get("/", (req,res)=>{
     res.send("ok");
