@@ -15,7 +15,7 @@ const {schemaTechnicienValidate} = require('../validations/technicien.validation
  * @param {*} res 
  */
 module.exports.addTechnicien = async(req , res) =>{
-    
+    /*
     //message de validation
     const {error} = schemaTechnicienValidate(req.body);
     if (error) return res.status(401).json(error.details[0].message);
@@ -23,7 +23,7 @@ module.exports.addTechnicien = async(req , res) =>{
     //verifier si le numero de telephone
     const telephoneExist = await technicienModels.findOne({telephone : req.body.telephone});
     if(telephoneExist) return res.status(400).json("Le numero de telephone es déja utliser");
-
+    */
     //const {nom,prenom, telephone, habilitationB , habilitationH } = req.body
     const addTechnicien = ({
         nom : req.body.nom,
