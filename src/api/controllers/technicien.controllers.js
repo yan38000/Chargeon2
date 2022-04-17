@@ -73,7 +73,7 @@ module.exports.addTechnicien = async(req , res) =>{
  */
  module.exports.AllTechnicien = async(req , res) =>{
     const allTechnicien = await technicienModels.find().select();
-    res.status(200).json(allTechnicien);
+    res.status(200).json(allTechnicien || {techniciens  : "error aucun id trouvé"});
 };
 
 /**
@@ -85,7 +85,7 @@ module.exports.addTechnicien = async(req , res) =>{
     const allIdTechnicien = { _id : req.params.id};
 
     technicienModels.findById(allIdTechnicien, (err , techniciens)=>{
-        if (!err) res.json({technicien : "id successful" , techniciens});
+        if (!err) res.json(techniciens || {techniciens  : "error id introuvable"});
         else return res.status(400).send(req.params.id);
     })
 };

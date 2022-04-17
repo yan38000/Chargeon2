@@ -23,10 +23,10 @@ const schemaTechnicienValidate = (addTechnicien) =>{
             //.min(1)
             //.max(20)
             .required(),
-        habilitationB : Joi.number()
+        habilitationB : Joi.string()
             .min(0)
             .max(3),
-        habilitationH : Joi.number()
+        habilitationH : Joi.string()
             .min(0)
             .max(3)
         
