@@ -56,7 +56,9 @@ module.exports.login = async(req , res) => {
 
         //creer et assigne un token
         const token = jwt.sign(user.toJSON() , process.env.TOKEN);
-        res.send({token})
+        //res.cookie("token", token)
+        res.send(token);
+	    
 
         //res.send('logiiin')
 };

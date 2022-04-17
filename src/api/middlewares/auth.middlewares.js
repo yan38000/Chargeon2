@@ -18,7 +18,7 @@ const auth = async(req , res , next) =>{
         return res.sendStatus(401);
     }
 
-    jwt.verify(token, process.env.TOKEN, (err, user) => {
+    jwt.verify(token, process.env.TOKEN,   (err, user) => {
         if (err) {
           return res.sendStatus(401);
         }
