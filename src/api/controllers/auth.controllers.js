@@ -42,6 +42,7 @@ module.exports.register = async(req , res) => {
 
 }
 module.exports.login = async(req , res) => {
+    
     //validation 
     const {error} = schemaLoginValidate(req.body);
     if (error) return res.status(401).json(error.details[0].message);
@@ -56,7 +57,8 @@ module.exports.login = async(req , res) => {
 
         //creer et assigne un token
         const token = jwt.sign(user.toJSON() , process.env.TOKEN);
-        //res.cookie("token", token)
+        //res.cookie("token", token , {maxAge : 5000});
+        //return res.redirect('/post')
         res.send(token);
 	    
 
