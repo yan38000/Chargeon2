@@ -14,6 +14,7 @@ require('dotenv').config({path : ".env"})
 const app = express();
 const port = process.env.PORT || 6002;
 const authRouter = require('./api/routes/auth.routes');
+const technicienRoute = require('./api/routes/technicien.routes');
 
 const {auth} = require('./api/middlewares/auth.middlewares');
 
