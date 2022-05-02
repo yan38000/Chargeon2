@@ -35,12 +35,15 @@ app.set('views' , path.join(__dirname, '../test'))
 app.get("/", (req,res)=>{
     res.render("test")
 });
+
 app.get("/post",auth, (req,res)=>{
     res.send('nouveau post')
 });
+
 app.use('/api/auth' , authRouter);
 
 app.use('/api/technicien', technicienRoute);
+
 //status
 app.use((req , res)=>{
     res.status(404).json('not found')
