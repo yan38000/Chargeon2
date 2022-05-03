@@ -12,7 +12,13 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config({path : '.env'})
 
-
+/**
+ * 
+ * @description : creation d'un utilisateur
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
 module.exports.register = async(req , res) => {
    
     //message de validation
@@ -41,6 +47,14 @@ module.exports.register = async(req , res) => {
     }
 
 }
+
+/**
+ * 
+ * @description : login un utilisateur
+ * @param {*} req 
+ * @param {*} res 
+ * @returns 
+ */
 module.exports.login = async(req , res) => {
     
     //validation 
@@ -57,10 +71,23 @@ module.exports.login = async(req , res) => {
 
         //creer et assigne un token
         const token = jwt.sign(user.toJSON() , process.env.TOKEN);
-        //res.cookie("token", token , {maxAge : 5000});
-        //return res.redirect('/post')
+        res.cookie("access_token", token);
+        
+        //return res.redirect('/')
         res.send(token);
 	    
 
         //res.send('logiiin')
+};
+
+/**
+ * 
+ * @description : deconnexion de l'utilisateur
+ * @param {*} req 
+ * @param {*} res 
+ */
+module.exports.logout = async(req , res) =>{
+    return res.clearCookie("access_token")
+    .status(200)
+    .json({ message: "Successfully logged out" });
 };

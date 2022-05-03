@@ -8,6 +8,7 @@
 //---------------------------------
 const express = require('express');
 const path = require('path');
+const cookieParser = require("cookie-parser");
 require('dotenv').config({path : ".env"});
 //---------------------------------
 // EXPORT
@@ -22,12 +23,14 @@ const technicienRoute = require('./api/routes/technicien.routes');
 const {auth} = require('./api/middlewares/auth.middlewares');
 const { patch } = require('./api/routes/auth.routes');
 
+
 //importation configuration base de donnée
 require('./config/config');
 
 //middlewares
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(cookieParser());
 
 app.set('view engine', 'ejs');
 app.set('views' , path.join(__dirname, '../test'))

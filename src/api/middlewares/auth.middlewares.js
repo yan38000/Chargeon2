@@ -11,7 +11,7 @@ require('dotenv').config({path : '.env'});
 
 
 const auth = async(req , res , next) =>{
-    const token = req.header('auth-token');
+    const token = req.cookies.access_token
     //const token = authHeader && authHeader.split(' ')[1];
     //const token = req.header('auth-token');
     if(token !== undefined){
