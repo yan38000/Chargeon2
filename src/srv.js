@@ -42,8 +42,11 @@ app.use(express.static("client"));
 app.set('view engine', 'ejs');
 
 //routes
-app.get("/", (req,res)=>{
+app.get("/" , (req ,res)=>{
     res.render("signin")
+})
+app.get("/accueil",  (req,res)=>{
+    res.render("accueil")
 });
 
 app.get("/post",auth, (req,res)=>{

@@ -71,10 +71,11 @@ module.exports.login = async(req , res) => {
 
         //creer et assigne un token
         const token = jwt.sign(user.toJSON() , process.env.TOKEN);
-        res.cookie("access_token", token);
+        res.cookie("access_token", token)
+        .redirect("/accueil")
         
         //return res.redirect('/')
-        res.send(token);
+        //res.send(token);
 	    
 
         //res.send('logiiin')
@@ -89,5 +90,5 @@ module.exports.login = async(req , res) => {
 module.exports.logout = async(req , res) =>{
     return res.clearCookie("access_token")
     .status(200)
-    .json({ message: "Successfully logged out" });
+    .redirect("/");
 };

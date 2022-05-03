@@ -21,7 +21,7 @@ const auth = async(req , res , next) =>{
             next();
         })
     }else{
-        return res.status(401).send('access denied');
+        return res.status(401).redirect('/');
     }
     /*
     const authHeader = req.headers['authorization'];
