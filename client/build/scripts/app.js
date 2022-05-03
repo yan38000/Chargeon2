@@ -1,1 +1,1 @@
-// 👇️ named import
+const header_popup=document.getElementById("header-popup"),header_btn_popup=document.getElementById("header-btn-popup");header_btn_popup.onclick=function(){header_popup.style.display="block"},window.onclick=function(e){e.target==header_popup&&(header_popup.style.display="none")};

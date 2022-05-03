@@ -2,21 +2,117 @@
 body {
     background-color: $black;
 }
+
+//header barre - taille
 .header {
     height: 55px;
     width: 100%;
     background-color: $black;
     border-bottom: 1px solid $gray2;
-    line-height: 55px;
-    
+}
 
-    .header-flex-component{
-        display: flex;
-        justify-content: space-between;
-    }
-    .header-component-logout{
-        height: 20px;
-        width: 50px;
-        background-color: $white;
+//flex item de chaque cote
+.header-flex-component{
+    display: flex;
+    justify-content: space-between;
+    padding: 11px;
+}   
+
+//style du logo
+.header-component-logo-style{
+    height: 35px;
+    
+} 
+
+//content bloc droit
+.header-component-logout{
+    display: flex;
+    //flex-direction: row-reverse;
+}
+
+//button image profil
+.header-component-icon{
+    height: 35px;
+    width: 35px;
+    background-color: $white;
+    border-radius: 10px;
+    //position: absolute;
+    cursor: pointer;
+    border: none;
+    //taille img button
+    .header-component-icon-img {
+        height: 35px;
+        width: 35px;
+        border-radius: 10px;
     }
 }
+
+//backround popup close
+.header-component-popup-close{
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    //background-color: rgb(0,0,0); 
+    //background-color: rgba(78, 30, 30, 0.4); 
+    //block content popup
+    .header-component-popup{
+        margin-right: 10px;
+        right: 0;
+        justify-content: flex-end;
+        top: 50px;
+        height: 120px;
+        width: 140px;
+        background-color: $black2;
+        position: absolute;
+        border-radius: 10px;
+        border: 1px solid $gray2;
+    }
+    //center ul
+    .header-component-popup-ul{
+        list-style: none;
+        justify-content: center;
+    }
+    //direction contenu de la popup
+    .header-component-popup-content{
+        display: flex;
+        padding: 10px;
+        &:hover{
+            background-color: $gray3;
+            border-radius: 7px;
+        }
+    }
+    //decoration text popup
+    .header-component-popup-a{
+        outline: none;
+        text-decoration: none;
+    }
+    //taille svg popup
+    .header-component-popup-icon{
+        cursor: pointer;
+        height: 18px;
+    }
+    //style font popup
+    .header-component-popup-li{
+        color: $gray;
+        padding-left: 10px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

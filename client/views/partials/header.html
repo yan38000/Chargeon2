@@ -7,13 +7,44 @@
     <link href="../../build/styles/main.css" rel="stylesheet">
 </head>
 <body>
-   <div class="header">
+   <header class="header">
     <div class="header-flex-component">
-        <div class="header-component-logo">logo</div>
+        <div class="header-component-logo">
+            <a href="#"><img src="../../build/images/header/logo_chargeon.svg" alt="" class="header-component-logo-style"></a>
+            
+        </div>
         <div class="header-component-logout">
-            <p>logout</p>
+            <button class="header-component-icon" id="header-btn-popup">
+                <img src="../../build/images/header/img-profile.jpeg" alt="" class="header-component-icon-img">
+            </button>
+            <div class="header-component-popup-close" id="header-popup">
+               
+                    
+                 
+                <div class="header-component-popup" >
+                    <ul class="header-component-popup-ul">
+                        <div class="header-component-popup-content">
+                            <img src="../../build/images/header/profiles.svg" alt="" class="header-component-popup-icon">
+                            <a href="" class="header-component-popup-a"><li class="header-component-popup-li">Profile</li></a>
+                        </div>
+
+                        <div class="header-component-popup-content">
+                            <img src="../../build/images/header/reglages.svg" alt=""class="header-component-popup-icon">
+                            <a href="" class="header-component-popup-a"><li class="header-component-popup-li">Compte detail</li></a>
+                        </div>
+
+                         <div class="header-component-popup-content">
+                            <img src="../../build/images/header/deconnexion.svg" alt="" class="header-component-popup-icon">
+                            <a href="/api/auth/logout" class="header-component-popup-a"><li class="header-component-popup-li">Deconnexion</li></a>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
-   </div> 
+</header> 
 </body>
+
+<script type="text/javascript" src="../../build/scripts/app.js"></script>
 </html>
