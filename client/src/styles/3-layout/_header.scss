@@ -1,0 +1,22 @@
+//header
+body {
+    background-color: $black;
+}
+.header {
+    height: 55px;
+    width: 100%;
+    background-color: $black;
+    border-bottom: 1px solid $gray2;
+    line-height: 55px;
+    
+
+    .header-flex-component{
+        display: flex;
+        justify-content: space-between;
+    }
+    .header-component-logout{
+        height: 20px;
+        width: 50px;
+        background-color: $white;
+    }
+}

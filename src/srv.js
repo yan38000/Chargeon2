@@ -16,12 +16,15 @@ require('dotenv').config({path : ".env"});
 const app = express();
 const port = process.env.PORT || 6002;
 
+//importation variables ejs
+const viewspath = path.join(__dirname,"../client/views/pages");
+const viewcss = path.join(__dirname, "../../client/build")
 //export route
 const authRouter = require('./api/routes/auth.routes');
 const technicienRoute = require('./api/routes/technicien.routes');
 
 const {auth} = require('./api/middlewares/auth.middlewares');
-const { patch } = require('./api/routes/auth.routes');
+
 
 
 //importation configuration base de donnée
@@ -32,19 +35,25 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 
+
+//ejs
+app.set('views', viewspath);
+app.use(express.static("client"));
 app.set('view engine', 'ejs');
-app.set('views' , path.join(__dirname, '../test'))
+
 //routes
 app.get("/", (req,res)=>{
-    res.render("test")
+    res.render("signin")
 });
 
 app.get("/post",auth, (req,res)=>{
     res.send('nouveau post')
 });
 
+//route authentification
 app.use('/api/auth' , authRouter);
 
+//route technicien
 app.use('/api/technicien', technicienRoute);
 
 //status
