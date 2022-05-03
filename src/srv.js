@@ -19,6 +19,7 @@ const port = process.env.PORT || 6002;
 //export route
 const authRouter = require('./api/routes/auth.routes');
 const technicienRoute = require('./api/routes/technicien.routes');
+const ticketRoute = require('./api/routes/ticket.routes');
 
 const {auth} = require('./api/middlewares/auth.middlewares');
 const { patch } = require('./api/routes/auth.routes');
@@ -40,12 +41,12 @@ app.get("/", (req,res)=>{
 });
 
 app.get("/post",auth, (req,res)=>{
-    res.send('nouveau post')
+    res.render("post")
 });
 
 app.use('/api/auth' , authRouter);
-
 app.use('/api/technicien', technicienRoute);
+app.use('/api/ticket', ticketRoute);
 
 //status
 app.use((req , res)=>{

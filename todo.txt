@@ -1,0 +1,11 @@
+-ticket
+    id
+    borne id
+    type de panne (panne elctronique {code vert} , type mecanique {code orange} , panne hors service {code rouge})
+    id client   - info client (nom , prenom , tel)
+    localisation de borne ( map)
+    button technicien
+        attribuer technicien (id , (nom , prenom , habilitation , habilitation))
+    boutton modifier
+        changer le technicien
+        supprimmer le ticket (archiver ticket {nouvel collection})

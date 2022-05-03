@@ -10,6 +10,7 @@ const {schemaLoginValidate} = require('../validations/auth.validations');
 const User = require('../models/auth.models');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const { post } = require('../routes/auth.routes');
 require('dotenv').config({path : '.env'})
 
 /**
@@ -73,11 +74,11 @@ module.exports.login = async(req , res) => {
         const token = jwt.sign(user.toJSON() , process.env.TOKEN);
         res.cookie("access_token", token);
         
-        //return res.redirect('/')
-        res.send(token);
+        //return res.redirect('/post')
+        //res.render("post");
 	    
 
-        //res.send('logiiin')
+        res.send('logiiin')
 };
 
 /**
