@@ -22,7 +22,7 @@ const viewcss = path.join(__dirname, "../../client/build")
 //export route
 const authRouter = require('./api/routes/auth.routes');
 const technicienRoute = require('./api/routes/technicien.routes');
-
+const globalRoute = require('./api/routes/goblal.routes');
 const {auth} = require('./api/middlewares/auth.middlewares');
 
 
@@ -45,23 +45,21 @@ app.set('view engine', 'ejs');
 app.get("/" , (req ,res)=>{
     res.render("signin")
 })
-app.get("/accueil",  (req,res)=>{
-    res.render("accueil")
-});
 
-app.get("/post",auth, (req,res)=>{
-    res.send('nouveau post')
-});
 
+//route globaux
+app.use('/' , globalRoute);
 //route authentification
 app.use('/api/auth' , authRouter);
+
 
 //route technicien
 app.use('/api/technicien', technicienRoute);
 
 //status
 app.use((req , res)=>{
-    res.status(404).json('not found')
+    
+    res.status(404).render('404')
 });
 
 app.listen(port, (req,res)=>{

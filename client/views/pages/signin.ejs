@@ -8,11 +8,22 @@
     <link href="../../build/styles/main.css" rel="stylesheet">
 </head>
 <body class="body-signin">
+    <header>
+        <%- include('../partials/headerSignin'); %>
+    </header>
     
-    <form action="/api/auth/login/" method="post">
-        <input type="text" name="name">
-        <input type="password" name="password">
-        <button>ok</button>
+    <form action="/api/auth/login/" method="post" class="signin-component-form">
+                <input type="text" name="name">
+                <input type="password" name="password">
+                <button>ok</button>
     </form>
+        
+        
+    
+    
+
+
+    <!--  
+    -->
 </body>
 </html>
