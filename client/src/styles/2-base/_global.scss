@@ -1,1 +1,50 @@
-//global
+//globlal
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    height: 100vh;
+  
+    display: grid;
+    grid-template-areas:
+      'header header header'
+      'nav content content'
+      'nav content content';
+    grid-template-columns: 1fr 4fr ;
+    grid-template-rows: 55px 1fr;
+  }
+  
+  header,
+  main,
+  aside,
+  nav {
+    background-color: steelblue;
+    color: #fff;
+    padding: 20px;
+    border: skyblue 1px solid;
+  }
+  
+  header {
+    grid-area: header;
+  }
+  
+  nav {
+    grid-area: nav;
+  }
+  
+  main {
+    grid-area: content;
+  }
+  
+  aside {
+    grid-area: sidebar;
+  }
+  
+  footer {
+    grid-area: footer;
+  }
