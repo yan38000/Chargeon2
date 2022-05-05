@@ -15,36 +15,29 @@
       'header header header'
       'nav content content'
       'nav content content';
-    grid-template-columns: 1fr 4fr ;
+    grid-template-columns: 240px 4fr ;
     grid-template-rows: 55px 1fr;
   }
   
-  header,
-  main,
-  aside,
-  nav {
-    background-color: steelblue;
-    color: #fff;
-    padding: 20px;
-    border: skyblue 1px solid;
+header,
+main,
+nav {
+    background-color: $black;
+    
+    
   }
   
   header {
     grid-area: header;
+    border-bottom: 1px solid $gray2;
   }
   
   nav {
     grid-area: nav;
+    border-right: 1px solid $gray2;
   }
   
   main {
     grid-area: content;
   }
-  
-  aside {
-    grid-area: sidebar;
-  }
-  
-  footer {
-    grid-area: footer;
-  }
+ 

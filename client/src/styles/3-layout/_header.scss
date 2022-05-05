@@ -1,3 +1,44 @@
+.header-component-flex {
+    display: flex;
+    justify-content: space-between;
+    
+    
+    
+}
+.header-component-flex-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .header-component-flex-style-logo{
+        height: 35px;
+    }
+    .header-component-flex-logo-msg {
+        display: block;
+        margin-left: 15px;
+        
+        
+
+        .header-component-flex-logo-style-msg{
+            background-color: $white;
+            border-radius: 10px;
+            padding: 5px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            text-align: center;
+            
+        }
+    }
+}
+
+.header-comonent-flex-right{
+    display: flex;
+}
+
+
+/*
+
 //header
 body {
     background-color: $black;
@@ -109,7 +150,7 @@ body {
 
 
 
-
+*/
 
 
 
