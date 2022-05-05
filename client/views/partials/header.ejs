@@ -10,25 +10,47 @@
     <div class="header-component-flex">
         <div class="header-component-flex-left">
             <div class="header-component-flex-logo">
-                <a href="/accueil"><img src="../../build/images/header/logo_chargeon.svg" alt="" class="header-component-flex-style-logo" id="header_logo_msg"></a>
+                 <a href="/accueil"><img src="../../build/images/header/logo_chargeon.svg" alt="" class="header-component-flex-style-logo" onmouseover="showPopupMsg();" onmouseout="hidePopupMsg();"></a>
             </div>
+             
             <div class="header-component-flex-logo-msg" id="header_logo_msg_popup">
-                <p class="header-component-flex-logo-style-msg" >Accueil</p>
+                <p class="header-component-flex-logo-style-msg" id="popup-msg-accueil">Accueil</p>
             </div>
+            
         </div>
 
         <div class="header-comonent-flex-right">
             <div class="header-component-flex-setting">
-                <button class="header-component-flex-setting-button" id="header-btn-popup">
+                <div class="header-component-flex-setting-msg">
+                    <p class="header-component-flex-setting-style-msg" id="popup-msg">Paramétre</p>
+                </div>
+                <button class="header-component-flex-setting-button" id="header-btn-popup" onmouseover="showPopupMsgParam();" onmouseout="hidePopupMsgParam();">
                     <img src="../../build/images/header/img-profile.jpeg" alt="" class="header-component-setting-button-style">
                 </button>
+                
             </div>
-
-            <div class="header-component-flex-setting-popup">
-
+            <div class="header-component-flex-setting-popup" id="header-popup">
+                    <div class="header-component-flex-setting-popup-conteiner">
+                        <ul class="header-component-flex-setting-popup-ul">
+                            <div class="header-component-flex-setting-popup-content">
+                                <img src="../../build/images/header/profiles.svg" alt="" class="header-component-flex-setting-popup-icon">
+                                <a href="" class="header-component-flex-setting-popup-a"><li class="header-component-flex-setting-popup-li">Profile</li></a>
+                            </div>
+    
+                            <div class="header-component-flex-setting-popup-content">
+                                <img src="../../build/images/header/reglages.svg" alt=""class="header-component-flex-setting-popup-icon">
+                                <a href="" class="header-component-flex-setting-popup-a"><li class="header-component-flex-setting-popup-li">Compte details</li></a>
+                            </div>
+    
+                             <div class="header-component-flex-setting-popup-content">
+                                <img src="../../build/images/header/deconnexion.svg" alt="" class="header-component-flex-setting-popup-icon">
+                                <a href="/api/auth/logout" class="header-component-flex-setting-popup-a"><li class="header-component-flex-setting-popup-li">Deconnexion</li></a>
+                            </div>
+                        </ul>
+                    </div>
             </div>
         </div>
-        <div>setting</div>
+        
     </div>
 
 

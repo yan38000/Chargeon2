@@ -1,43 +1,43 @@
 //globlal
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
   
-  body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    height: 100vh;
-  
-    display: grid;
-    grid-template-areas:
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
       'header header header'
       'nav content content'
       'nav content content';
-    grid-template-columns: 240px 4fr ;
-    grid-template-rows: 55px 1fr;
-  }
-  
+  grid-template-columns: 240px 4fr ;
+  grid-template-rows: 55px 1fr;
+}
+
 header,
 main,
 nav {
-    background-color: $black;
-    
-    
-  }
+  background-color: $black;
+}
   
-  header {
-    grid-area: header;
-    border-bottom: 1px solid $gray2;
-  }
+header {
+  grid-area: header;
+  border-bottom: 1px solid $gray2;
+}
   
-  nav {
-    grid-area: nav;
-    border-right: 1px solid $gray2;
-  }
+nav {
+  grid-area: nav;
+  border-right: 1px solid $gray2;
+}
   
-  main {
-    grid-area: content;
-  }
- 
+main {
+  grid-area: content;
+}
+
+a{
+  text-decoration: none;
+}

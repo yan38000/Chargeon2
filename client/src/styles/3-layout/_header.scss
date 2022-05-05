@@ -1,14 +1,12 @@
 .header-component-flex {
     display: flex;
     justify-content: space-between;
-    
-    
-    
+    padding: 10px;
 }
 .header-component-flex-left {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    
 
     .header-component-flex-style-logo{
         height: 35px;
@@ -17,9 +15,46 @@
         display: block;
         margin-left: 15px;
         
-        
-
+    
         .header-component-flex-logo-style-msg{
+            display: none;
+            cursor: none;
+            background-color: $white;
+            border-radius: 10px;
+            padding: 5px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            text-align: center;
+        }
+    }
+}
+
+.header-comonent-flex-right{
+    display: flex;
+
+    .header-component-flex-setting{
+        display: flex;
+        flex-direction: row;
+        margin-left: 15px;
+
+        .header-component-flex-setting-button{
+            margin-left: 15px;
+            height: 35px;
+            width: 35px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+            
+            .header-component-setting-button-style{
+                height: 35px;
+                width: 35px;
+                border-radius: 10px;
+            }
+        }
+        .header-component-flex-setting-style-msg{
+            display: none;
+            cursor: none;
             background-color: $white;
             border-radius: 10px;
             padding: 5px;
@@ -30,10 +65,54 @@
             
         }
     }
-}
+    .header-component-flex-setting-popup{
+        display: none;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
 
-.header-comonent-flex-right{
-    display: flex;
+        .header-component-flex-setting-popup-conteiner{
+            margin-right: 10px;
+            right: 0;
+            top: 50px;
+            height: 120px;
+            width: 140px;
+            background-color: $black2;
+            position: absolute;
+            border-radius: 10px;
+            border: 2px solid $gray2;
+
+            .header-component-flex-setting-popup-ul{
+                list-style: none;
+                justify-content: center;
+
+                .header-component-flex-setting-popup-content{
+                    display: flex;
+                    padding: 10px;
+                    
+                    &:hover{
+                        background-color: $gray3;
+                        border-radius: 7px;
+                    }  
+                }
+                .header-component-flex-setting-popup-icon{
+                    cursor: pointer;
+                    height: 18px;
+                }
+                .header-component-flex-setting-popup-li{
+                    color: $gray;
+                    padding-left: 10px;
+                    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+
 }
 
 
