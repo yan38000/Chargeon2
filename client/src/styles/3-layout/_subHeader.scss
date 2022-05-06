@@ -1,1 +1,21 @@
 //subheader
+.sidebar-component-flex-conteiner{
+    display: flex;
+    justify-content: space-between;
+    
+  
+}
+
+.sideBar-component-flex-dashboard{
+    height: 50px;
+    width: 50px;
+    background-color: red;
+    
+    
+}
+.sideBar-component-flex-param{
+    height: 50px;
+    width: 50px;
+    background-color: steelblue;
+    
+}
