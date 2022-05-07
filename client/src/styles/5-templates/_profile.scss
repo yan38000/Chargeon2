@@ -122,6 +122,7 @@
 
 .main-profile-content-ticket{
     //background-color: red;
+    
 }
 .main-profile-content-ticket{
     padding-left: 5em;
@@ -150,7 +151,9 @@
 
 @media only screen and (max-width: 1700px) {
     .main-profile-content-ticket{
-        background-color: red;
+        
+        height: 300px;
+        overflow-y: auto;
     }
     .main-profile-content-ticket{
         
@@ -165,6 +168,121 @@
     }
     .main-profil-content-ticket-button{
         width: 450px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        border: 1px solid $gray2;
+        background-color: $black;
+        cursor: pointer;
+        &:hover{
+            background-color: $black2;
+        }
+    }
+}
+@media only screen and (max-width: 1600px) {
+    .main-profile-content-ticket{
+        
+        overflow-y: auto;
+        height: 300px;
+    }
+    .main-profile-content-ticket{
+        
+        padding: 50px;
+        
+        
+        display: grid;
+        grid-template-columns: repeat(1, 250px);
+        grid-template-rows: repeat(1, 40px);
+        gap: 20px;
+        
+    }
+    .main-profil-content-ticket-button{
+        width: 450px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        border: 1px solid $gray2;
+        background-color: $black;
+        cursor: pointer;
+        &:hover{
+            background-color: $black2;
+        }
+    }
+}
+@media only screen and (max-width: 1500px) {
+    .main-profile-content-ticket{
+        
+
+    }
+    .main-profile-content-ticket{
+        
+        padding: 30px;
+        
+        
+        display: grid;
+        grid-template-columns: repeat(1, 250px);
+        grid-template-rows: repeat(1, 40px);
+        gap: 20px;
+        
+    }
+    .main-profil-content-ticket-button{
+        width: 400px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        border: 1px solid $gray2;
+        background-color: $black;
+        cursor: pointer;
+        &:hover{
+            background-color: $black2;
+        }
+    }
+}
+@media only screen and (max-width: 1400px) {
+    .main-profile-content-ticket{
+        
+    }
+    .main-profile-content-ticket{
+        
+        padding: 50px;
+        
+        
+        display: grid;
+        grid-template-columns: repeat(1, 250px);
+        grid-template-rows: repeat(1, 40px);
+        gap: 20px;
+        
+    }
+    .main-profil-content-ticket-button{
+        width: 350px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        border: 1px solid $gray2;
+        background-color: $black;
+        cursor: pointer;
+        &:hover{
+            background-color: $black2;
+        }
+    }
+}
+@media only screen and (max-width: 1300px) {
+    .main-profile-content-ticket{
+        
+    }
+    .main-profile-content-ticket{
+        
+        padding: 50px;
+        
+        
+        display: grid;
+        grid-template-columns: repeat(1, 250px);
+        grid-template-rows: repeat(1, 40px);
+        gap: 20px;
+        
+    }
+    .main-profil-content-ticket-button{
+        width: 300px;
         height: 40px;
         border: none;
         border-radius: 10px;
