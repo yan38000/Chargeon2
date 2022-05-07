@@ -13,7 +13,7 @@
     
 }
 .main-profile{
-    
+    height: 340px;
     border-bottom: 1px solid $gray2;
     //background-color: rgba(0, 255, 255, 0.116);
     
@@ -121,18 +121,26 @@
 }
 
 .main-profile-content-ticket{
-    
+    background-color: red;
+    overflow-y: auto;
+    height: 645px;
+}
+.main-profile-content-ticket{
+    padding-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 250px);
+    grid-template-rows: repeat(2, 40px);
+    gap: 20px;
     
 }
-.main-profil-content-ticket-name{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Ubuntu, "Segoe UI", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 15px;
-    color: #a8b3cf;
-    background-color: aqua;
-    min-width: max-content;
-}
-.main-profil-content-ticket-name-span{
-    padding-left: 25px;
+.main-profil-content-ticket-button{
+    width: 250px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    border: 1px solid $gray2;
+    background-color: $black;
+    cursor: pointer;
 }
