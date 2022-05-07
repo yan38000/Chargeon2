@@ -121,11 +121,11 @@
 }
 
 .main-profile-content-ticket{
-    background-color: red;
-    overflow-y: auto;
-    height: 645px;
+    //background-color: red;
 }
 .main-profile-content-ticket{
+    padding-left: 5em;
+    padding-right: 5em;
     padding-top: 35px;
     display: flex;
     justify-content: space-between;
@@ -136,11 +136,43 @@
     
 }
 .main-profil-content-ticket-button{
-    width: 250px;
+    width: 280px;
     height: 40px;
     border: none;
     border-radius: 10px;
     border: 1px solid $gray2;
     background-color: $black;
     cursor: pointer;
+    &:hover{
+        background-color: $black2;
+    }
+}
+
+@media only screen and (max-width: 1700px) {
+    .main-profile-content-ticket{
+        background-color: red;
+    }
+    .main-profile-content-ticket{
+        padding-left: 50px;
+        padding-top: 35px;
+        
+        
+        display: grid;
+        grid-template-columns: repeat(1, 250px);
+        grid-template-rows: repeat(1, 40px);
+        gap: 20px;
+        
+    }
+    .main-profil-content-ticket-button{
+        width: 450px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        border: 1px solid $gray2;
+        background-color: $black;
+        cursor: pointer;
+        &:hover{
+            background-color: $black2;
+        }
+    }
 }
