@@ -15,3 +15,6 @@
 module.exports.accueil = async (req , res)=>{
     res.render("accueil");
 }
+module.exports.profile = async (req , res)=>{
+    res.render("profile");
+}
