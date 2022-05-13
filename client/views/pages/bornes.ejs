@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Bornes - Chargeon</title>
+    <meta name="description" content="Description">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <link rel="icon" href="../assets/img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/libs.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="preload" href="../../assets/fonts/istok-web-v15-latin/istok-web-v15-latin-regular.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/istok-web-v15-latin/istok-web-v15-latin-700.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/montserrat-v15-latin/montserrat-v15-latin-700.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/montserrat-v15-latin/montserrat-v15-latin-600.woff2" as="font"
+        type="font/woff2" crossorigin>
+
+    <link rel="preload" href="../../assets/fonts/material-icons/material-icons.woff2" as="font" type="font/woff2"
+        crossorigin>
+    <link rel="preload" href="../../assets/fonts/material-icons/material-icons-outlined.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+
+<body>
+
+
+    <main class="main">
+        <!-- Begin header -->
+        <header class="header">
+            <%- include('partials/header'); %>
+        </header>
+
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-heading heading-center">
+
+                            <h1>Bornes</h1>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12 item">
+                        <!-- Begin news item -->
+                        <article class="news-item item-style">
+                            <a href="/bornes/" class="news-item-img">
+                                <div id='map' style='width: 100%; height: 100%;'></div>
+                                <script>
+
+                                    mapboxgl.accessToken = '';
+                                    var map = new mapboxgl.Map({
+                                        container: 'map',
+                                        style: 'mapbox://styles/mapbox/light-v10',
+                                        center: [5.928, 43.124228],
+                                        zoom: 13
+                                    });
+                                    const marker2 = new mapboxgl.Marker({ color: 'black' })
+                                        .setLngLat([5.928, 43.124228])
+                                        .addTo(map);
+                                </script>
+                            </a>
+                            <div class="news-item-info">
+                                <div class="news-item-date">Etat : </div>
+                                <h2 class="news-item-heading item-heading">
+                                    <a href="news-post.html" title="Benefits Of Async/Await">adress</a>
+                                </h2>
+                                <div class="news-item-desc">
+                                    <p>type : </p>
+                                </div>
+                            </div>
+                        </article><!-- End news item -->
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+
+
+    </main>
+
+    <script src="../assets/libs/jquery/jquery.min.js"></script>
+    <script src="../assets/libs/lozad/lozad.min.js"></script>
+    <script src="../assets/libs/device/device.js"></script>
+    <script src="../assets/libs/ScrollToFixed/jquery-scrolltofixed-min.js"></script>
+    <script src="../assets/libs/spincrement/jquery.spincrement.min.js"></script>
+    <script src="../assets/libs/jquery-validation-1.19.3/jquery.validate.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
+
+</body>
+
+</html>

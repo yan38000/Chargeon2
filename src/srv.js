@@ -17,12 +17,16 @@ const app = express();
 const port = process.env.PORT || 6002;
 
 //export route
+const globalRoute = require('./api/routes/globals.routes');
 const authRouter = require('./api/routes/auth.routes');
 const technicienRoute = require('./api/routes/technicien.routes');
 
+//export middleware
 const {auth} = require('./api/middlewares/auth.middlewares');
-const { patch } = require('./api/routes/auth.routes');
 
+//importation variable ejs
+const viewspath = path.join(__dirname,"../client/views/pages");
+const viewcss = path.join(__dirname, "../../client/assets")
 
 //importation configuration base de donnée
 require('./config/config');
@@ -32,24 +36,23 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 
+//ejs
+app.set('views', viewspath);
+app.use(express.static("client"));
 app.set('view engine', 'ejs');
-app.set('views' , path.join(__dirname, '../test'))
-//routes
-app.get("/", (req,res)=>{
-    res.render("test")
-});
 
+//routes
 app.get("/post",auth, (req,res)=>{
     res.send('nouveau post')
 });
 
+app.use('/' , globalRoute);
 app.use('/api/auth' , authRouter);
-
 app.use('/api/technicien', technicienRoute);
 
 //status
 app.use((req , res)=>{
-    res.status(404).json('not found')
+    res.status(404).render('404');
 });
 
 app.listen(port, (req,res)=>{

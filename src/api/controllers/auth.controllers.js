@@ -73,8 +73,8 @@ module.exports.login = async(req , res) => {
         const token = jwt.sign(user.toJSON() , process.env.TOKEN);
         res.cookie("access_token", token);
         
-        //return res.redirect('/')
-        res.send(token);
+        return res.redirect('/borne')
+        //res.send(token);
 	    
 
         //res.send('logiiin')
