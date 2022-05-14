@@ -20,6 +20,7 @@ const port = process.env.PORT || 6002;
 const globalRoute = require('./api/routes/globals.routes');
 const authRouter = require('./api/routes/auth.routes');
 const technicienRoute = require('./api/routes/technicien.routes');
+const bornesRoute = require('./api/routes/borne.routes');
 
 //export middleware
 const {auth} = require('./api/middlewares/auth.middlewares');
@@ -49,6 +50,7 @@ app.get("/post",auth, (req,res)=>{
 app.use('/' , globalRoute);
 app.use('/api/auth' , authRouter);
 app.use('/api/technicien', technicienRoute);
+app.use('/api/borne' , bornesRoute);
 
 //status
 app.use((req , res)=>{

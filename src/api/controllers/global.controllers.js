@@ -6,6 +6,7 @@
 //---------------------------------
 // DEPENDANCE
 //---------------------------------
+const bornesModels = require('../models/borne.models');
 /**
  * @description ajouter un technicien
  * @param {*} req 
@@ -21,5 +22,6 @@ module.exports.globalLogin = async(req , res) =>{
  * @param {*} res 
  */
  module.exports.globalBornes = async(req , res) =>{
-    res.render("bornes")
+    const data = await bornesModels.find().select();
+    res.status(200).render('bornes' , {bornes : data});
 }

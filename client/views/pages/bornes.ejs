@@ -46,37 +46,65 @@
                             <h1>Bornes</h1>
                         </div>
                     </div>
+                    <% bornes.forEach((borne)=> { %>
                     <div class="col-lg-4 col-md-6 col-12 item">
                         <!-- Begin news item -->
+                        
                         <article class="news-item item-style">
+                            
                             <a href="/bornes/" class="news-item-img">
                                 <div id='map' style='width: 100%; height: 100%;'></div>
+                                
+                                <% const localisation = borne.localisation; %>
+                                
                                 <script>
-
-                                    mapboxgl.accessToken = '';
+                                    
+                                    
+       
+        
+                                    var getLocalisation = '<%= localisation  %>';  //var test is now assigned to getTest which will only work on browsers
+                                    // const center = getLocalisation.split(",");
+                                    // const lng = parseFloat(center[0]);
+                                    // const lat = parseFloat(center[1]);
+                                    var b = 5.928;
+                                    console.log(b);
+                                    
+                                  
+                                    mapboxgl.accessToken = 'pk.eyJ1IjoieWFuYmFyYSIsImEiOiJjbDM0c3o3ZnoxNzBuM2pwOWFzbnVoYWVrIn0.hwEd33-23eMeNEoPWL5lgA';
+                                    
                                     var map = new mapboxgl.Map({
+                                        
                                         container: 'map',
                                         style: 'mapbox://styles/mapbox/light-v10',
-                                        center: [5.928, 43.124228],
-                                        zoom: 13
+                                        center: [b,45.124228],
+                                        zoom: 11
                                     });
-                                    const marker2 = new mapboxgl.Marker({ color: 'black' })
-                                        .setLngLat([5.928, 43.124228])
-                                        .addTo(map);
+                                    
+                                    
+                                    // const marker2 = new mapboxgl.Marker({ color: 'black' })
+                                    //     .setLngLat([])
+                                    //     .addTo(map);
+                                    
+                                    Timeout(5000);
+                                    console.log("terminer");
                                 </script>
+                                
+                               
                             </a>
                             <div class="news-item-info">
-                                <div class="news-item-date">Etat : </div>
+                                <div class="news-item-date">Etat : <%= borne.etat %></div>
                                 <h2 class="news-item-heading item-heading">
-                                    <a href="news-post.html" title="Benefits Of Async/Await">adress</a>
+                                    <a href="news-post.html" title="Benefits Of Async/Await"><%= borne.adress %></a>
                                 </h2>
                                 <div class="news-item-desc">
-                                    <p>type : </p>
+                                    <p>type : <%= borne.habilitationB%></p>
                                 </div>
                             </div>
+                            
                         </article><!-- End news item -->
+                        
                     </div>
-
+                    <% }) %>
 
 
                 </div>
@@ -88,7 +116,7 @@
 
 
     </main>
-
+    
     <script src="../assets/libs/jquery/jquery.min.js"></script>
     <script src="../assets/libs/lozad/lozad.min.js"></script>
     <script src="../assets/libs/device/device.js"></script>
