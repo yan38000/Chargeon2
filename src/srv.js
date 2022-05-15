@@ -53,9 +53,9 @@ app.use('/api/technicien', technicienRoute);
 app.use('/api/borne' , bornesRoute);
 
 //status
-app.use((req , res)=>{
-    res.status(404).render('404');
-});
+// app.use((req , res)=>{
+//     res.status(404).render('404');
+// });
 
 app.listen(port, (req,res)=>{
     console.log(`http://localhost:${port}`);

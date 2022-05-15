@@ -37,3 +37,31 @@ const bornesModels = require('../models/borne.models');
     const data = await bornesModels.find().select();
     res.status(200).render('bornes' , {bornes : data});
 };
+
+/**
+ * @description supprimer un technicien
+ * @param {*} req 
+ * @param {*} res 
+ */
+ module.exports.DeletteBornes = async(req , res) =>{
+    const deleteBorne = { _id : req.params.id};
+
+    bornesModels.findByIdAndDelete(deleteBorne , req.body, (err ,bornes)=>{
+        if (!err) return res.redirect('/borne');
+        else return res.status(400).send(req.params.id);
+    })
+};
+
+/**
+ * @description modifier un technicien
+ * @param {*} req 
+ * @param {*} res 
+ */
+ module.exports.updateBorne = async(req , res) =>{
+    const updateBornes = {_id : req.params.id};
+
+    bornesModels.findByIdAndUpdate(updateBornes , req.body, (err)=>{
+        if (!err) return res.redirect('/borne');
+        else return res.status(400).send(req.params.id);
+    })
+};

@@ -3701,6 +3701,42 @@ body.mmm-open .mmm {
     }
 }
 
+.borne_option{
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    
+    
+    
+}
+.borne{
+    height: 40px;
+    width: 40px;
+    background-color: #f0f3f8;
+    border-radius: 10px;
+    
+    border: none;
+    border: 1px solid #969697;
+    
+}
+.borne-icone{
+    height: 20px;
+    width: 20px;
+}
+.borne_plus{
+    display: block;
+    flex-direction: row;
+}
+
+.form_update{
+    display: none;
+    height: 100%;
+    width: 100%px;
+    background-color: #f0f3f8;
+    border-radius: 10px;
+    
+    
+}
 /*
 :root {
     --media-width: 1400px;

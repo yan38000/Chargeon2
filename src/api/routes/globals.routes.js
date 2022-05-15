@@ -11,5 +11,6 @@ const globalControllers = require('../controllers/global.controllers');
 
 router.get('/' , globalControllers.globalLogin);
 router.get('/borne' , globalControllers.globalBornes);
+router.get('/borne/addBorne' , globalControllers.globalAddBornes);
 
 module.exports = router;

@@ -25,3 +25,13 @@ module.exports.globalLogin = async(req , res) =>{
     const data = await bornesModels.find().select();
     res.status(200).render('bornes' , {bornes : data});
 }
+
+/**
+ * @description ajouter un technicien
+ * @param {*} req 
+ * @param {*} res 
+ */
+ module.exports.globalAddBornes = async(req , res) =>{
+    const data = await bornesModels.findById().select();
+    res.status(200).render('Addborne' , {bornes : data});
+}
