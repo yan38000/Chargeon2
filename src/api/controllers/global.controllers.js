@@ -23,7 +23,7 @@ module.exports.globalLogin = async(req , res) =>{
  */
  module.exports.globalBornes = async(req , res) =>{
     const data = await bornesModels.find().select();
-    res.status(200).render('bornes' , {bornes : data});
+    res.status(200).render('borne' , {bornes : data});
 }
 
 /**

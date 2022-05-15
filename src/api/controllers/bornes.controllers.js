@@ -18,12 +18,11 @@ const bornesModels = require('../models/borne.models');
     const addBornes = ({
         localisation : req.body.localisation,
         adress : req.body.adress,
-        habilitationB : req.body.habilitationB,
-        habilitationH : req.body.habilitationH,
+        type : req.body.type,
         etat : req.body.etat
     })
     bornesModels.create(addBornes , (err, borne)=>{
-        if (!err) res.json({borne : "create successful", borne});
+        if (!err) return res.redirect('/borne');
         else return res.status(400).send("probleme de creation");
     })
 }

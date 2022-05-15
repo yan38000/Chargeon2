@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Bornes - Chargeon</title>
+    <meta name="description" content="Description">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <link rel="icon" href="../assets/img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/libs.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="preload" href="../../assets/fonts/istok-web-v15-latin/istok-web-v15-latin-regular.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/istok-web-v15-latin/istok-web-v15-latin-700.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/montserrat-v15-latin/montserrat-v15-latin-700.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/montserrat-v15-latin/montserrat-v15-latin-600.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/material-icons/material-icons.woff2" as="font" type="font/woff2"
+        crossorigin>
+    <link rel="preload" href="../../assets/fonts/material-icons/material-icons-outlined.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+
+<body>
+    <main class="main">
+        <!-- Begin header -->
+        <header class="header">
+            <%- include('partials/header'); %>
+        </header>
+
+        <div class="section">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-12">
+
+                        <div class="section-heading heading-center">
+                            <h1>Bornes</h1>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12 item">
+                        <!-- Begin news item -->
+                        <div class="item-style">
+
+                            <form action="/api/borne/addBorne/" method="post">
+                                <h4 style="text-align: center; margin: 12%;">Création d'une borne</h4>
+                                <div class="form-field">
+                                    <label for="contact-name" class="form-field-label">localisation</label>
+                                    <input type="text" class="form-field-input" name="localisation" value=""
+                                        autocomplete="off" required="required" id="contact-name">
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="contact-name" class="form-field-label">Adresse</label>
+                                    <input type="text" class="form-field-input" name="adress" value=""
+                                        autocomplete="off" required="required" id="contact-name">
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="contact-name" class="form-field-label">Type de tension</label>
+                                    <select name="type" autocomplete="off" required="required" id="contact-name">
+                                        <option value="">Choisir un type de tension</option>
+                                        <option value="Aucun">Aucune</option>
+                                        <option value="Basse Tension">Basse Tension</option>
+                                        <option value="Haute Tension">Haute Tension</option>
+
+                                    </select>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="contact-name" class="form-field-label">Type d'état</label>
+                                    <select name="etat" autocomplete="off" required="required" id="contact-name">
+                                        <option value="">Choisir un type d'état</option>
+                                        <option value="Code Vert">Code Vert</option>
+                                        <option value="Code Orange">Code Orange</option>
+                                        <option value="Code Rouge">Code Rouge</option>
+
+                                    </select>
+                                </div>
+
+
+                                <div class="form-btn" style="justify-content: center;">
+                                    <button class="btn btn-w240 ripple"><span>Connexion</span></button>
+                                </div>
+                            </form>
+                            <br>
+                            <br>
+                               
+
+
+
+                        </div>
+                    </div>
+                    <% if(bornes !=null) { %>
+                        <% for(var i=0; i < bornes.length; i++) { %>
+                            <% const bArticle=[i]; %>
+                                <% const localisationA=bornes[i].localisation %>
+
+                                    <div class="col-lg-4 col-md-6 col-12 item">
+                                        <!-- Begin news item -->
+
+                                        <article class="news-item item-style">
+
+                                            <a href="news-post.html" class="news-item-img">
+                                                <div class="map" style='width: 100%; height: 100%;'>
+
+                                                </div>
+                                            </a>
+                                            <div class="news-item-info">
+                                                <div class="news-item-date">
+                                                    <%- bornes[i].etat %>
+                                                </div>
+                                                <h2 class="news-item-heading item-heading">
+                                                    <a href="news-post.html" title="Benefits Of Async/Await">
+                                                        <%- bornes[i].adress %>
+                                                    </a>
+                                                </h2>
+                                                <div class="news-item-desc">
+                                                    <p>Asynchronous functions are a good and bad thing in JavaScript.
+                                                    </p>
+                                                    <div style="display: flex; flex-direction : rows; gap: 10px;">
+                                                        <form action="api/borne/deleteBorne/<%= bornes[i]._id%>"
+                                                            method="post">
+                                                            <button class="borne">
+                                                                <img src="../../assets/img/poubelle.svg" alt=""
+                                                                    class="borne-icone">
+                                                            </button>
+
+                                                        </form>
+                                                        <button class="borne1" onclick="toggleText()">
+                                                            <img src="../../assets/img/crayon.svg" alt=""
+                                                                class="borne-icone">
+                                                        </button>
+                                                    </div>
+
+
+
+
+                                                </div>
+                                            </div>
+
+                                            <script>
+                                                var getArticle = '<%= bArticle  %>';
+                                                var getLocalisation = '<%= localisationA  %>';
+
+                                                // console.log(getArticle);
+                                                // console.log(getLocalisation);
+
+                                                var a = getLocalisation.split(',');
+
+                                                var lng = parseFloat(a[0]);
+                                                //console.log(lng);
+
+                                                var lat = parseFloat(a[1]);
+                                                //console.log(lat);
+
+                                                var test = document.querySelectorAll('.map');
+
+
+
+                                                //mapboxgl.accessToken = 'pk.eyJ1IjoieWFuYmFyYSIsImEiOiJjbDM0c3o3ZnoxNzBuM2pwOWFzbnVoYWVrIn0.hwEd33-23eMeNEoPWL5lgA';
+
+                                                var map = new mapboxgl.Map({
+                                                    container: test[getArticle],
+                                                    style: 'mapbox://styles/mapbox/light-v10',
+                                                    center: [lat, lng],
+                                                    zoom: 14
+                                                });
+                                                new mapboxgl.Marker({ color: 'black' })
+                                                    .setLngLat([lat, lng])
+                                                    .addTo(map);
+
+
+
+                                            </script>
+                                        </article>
+                                    </div>
+
+
+                                    <% } %>
+                                        <% } else { %>
+                                            <h1>No posts found.</h1>
+                                            <% } %>
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../assets/libs/jquery/jquery.min.js"></script>
+    <script src="../assets/libs/lozad/lozad.min.js"></script>
+    <script src="../assets/libs/device/device.js"></script>
+    <script src="../assets/libs/ScrollToFixed/jquery-scrolltofixed-min.js"></script>
+    <script src="../assets/libs/spincrement/jquery.spincrement.min.js"></script>
+    <script src="../assets/libs/jquery-validation-1.19.3/jquery.validate.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
+</body>
+
+</html>

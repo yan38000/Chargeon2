@@ -18,17 +18,10 @@ const bornesSchema = new mongoose.Schema({
         required : true,
         
     },
-   habilitationB : {
+    type : {
         type : String,
         required : false,
-        min : 0,
-        max : 3
-    },
-    habilitationH : {
-        type : String,
-        required : false,
-        min : 0,
-        max : 3
+        
     },
     etat : {
         type : String,
