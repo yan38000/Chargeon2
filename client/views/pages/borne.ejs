@@ -95,103 +95,96 @@
                             </form>
                             <br>
                             <br>
-                               
-
-
-
                         </div>
                     </div>
+
                     <% if(bornes !=null) { %>
                         <% for(var i=0; i < bornes.length; i++) { %>
                             <% const bArticle=[i]; %>
                                 <% const localisationA=bornes[i].localisation %>
+                                    <% const etat=bornes[i].etat %>
 
-                                    <div class="col-lg-4 col-md-6 col-12 item">
-                                        <!-- Begin news item -->
+                                        <div class="col-lg-4 col-md-6 col-12 item">
+                                            
 
-                                        <article class="news-item item-style">
+                                            <article class="news-item item-style">
+                                                
+                                                <a href="news-post.html" class="news-item-img">
+                                                    <div class="map" style='width: 100%; height: 100%;'>
+                                                    </div>
+                                                </a>
 
-                                            <a href="news-post.html" class="news-item-img">
-                                                <div class="map" style='width: 100%; height: 100%;'>
+                                                <div class="news-item-info">
+                                                    <div class="news-item-date">
+                                                        <%- bornes[i].etat %>
+                                                    </div>
+                                                    <h2 class="news-item-heading item-heading">
+                                                        <a href="news-post.html" title="Benefits Of Async/Await">
+                                                            <%- bornes[i].adress %>
+                                                        </a>
+                                                    </h2>
+                                                    <div class="news-item-desc">
+                                                        <p class="aa">Asynchronous functions are a good and bad thing in
+                                                            JavaScript.
+                                                        </p>
+                                                        <div style="display: flex; flex-direction : rows; gap: 10px;">
+                                                            <form action="api/borne/deleteBorne/<%= bornes[i]._id%>"
+                                                                method="post">
+                                                                <button class="borne">
+                                                                    <img src="../../assets/img/poubelle.svg" alt=""
+                                                                        class="borne-icone">
+                                                                </button>
+                                                            </form>
 
-                                                </div>
-                                            </a>
-                                            <div class="news-item-info">
-                                                <div class="news-item-date">
-                                                    <%- bornes[i].etat %>
-                                                </div>
-                                                <h2 class="news-item-heading item-heading">
-                                                    <a href="news-post.html" title="Benefits Of Async/Await">
-                                                        <%- bornes[i].adress %>
-                                                    </a>
-                                                </h2>
-                                                <div class="news-item-desc">
-                                                    <p>Asynchronous functions are a good and bad thing in JavaScript.
-                                                    </p>
-                                                    <div style="display: flex; flex-direction : rows; gap: 10px;">
-                                                        <form action="api/borne/deleteBorne/<%= bornes[i]._id%>"
-                                                            method="post">
-                                                            <button class="borne">
-                                                                <img src="../../assets/img/poubelle.svg" alt=""
+                                                            <button class="borne" id="openUpdate">
+                                                                <img src="../../assets/img/crayon.svg" alt=""
                                                                     class="borne-icone">
                                                             </button>
+                                                        </div>
 
-                                                        </form>
-                                                        <button class="borne1" onclick="toggleText()">
-                                                            <img src="../../assets/img/crayon.svg" alt=""
-                                                                class="borne-icone">
-                                                        </button>
+
+
+
                                                     </div>
-
-
-
-
                                                 </div>
-                                            </div>
 
-                                            <script>
-                                                var getArticle = '<%= bArticle  %>';
-                                                var getLocalisation = '<%= localisationA  %>';
+                                                <script>
+                                                    var getAriticleId = '<%= bArticle  %>';
+                                                    var getLocalisation = '<%= localisationA  %>';
+                                                    var getEtat = '<%= etat  %>';
 
-                                                // console.log(getArticle);
-                                                // console.log(getLocalisation);
+                                                    //console.log(getArticle);
+                                                    // console.log(getLocalisation);
 
-                                                var a = getLocalisation.split(',');
+                                                    //localisation
+                                                    var localisationSlip = getLocalisation.split(',');
+                                                    var lng = parseFloat(localisationSlip[0]);
+                                                    var lat = parseFloat(localisationSlip[1]);
 
-                                                var lng = parseFloat(a[0]);
-                                                //console.log(lng);
+                                                    var SelectMapBox = document.querySelectorAll('.map');
 
-                                                var lat = parseFloat(a[1]);
-                                                //console.log(lat);
+                                                    
 
-                                                var test = document.querySelectorAll('.map');
+                                                    mapboxgl.accessToken = 'pk.eyJ1IjoieWFuYmFyYSIsImEiOiJjbDM0c3o3ZnoxNzBuM2pwOWFzbnVoYWVrIn0.hwEd33-23eMeNEoPWL5lgA';
 
+                                                    var map = new mapboxgl.Map({
+                                                        container: SelectMapBox[getAriticleId],
+                                                        style: 'mapbox://styles/mapbox/light-v10',
+                                                        center: [lat, lng],
+                                                        zoom: 14
+                                                    });
+                                                    new mapboxgl.Marker({ color: 'black' })
+                                                        .setLngLat([lat, lng])
+                                                        .addTo(map);
 
+                                                </script>
+                                            </article>
+                                        </div>
 
-                                                //mapboxgl.accessToken = 'pk.eyJ1IjoieWFuYmFyYSIsImEiOiJjbDM0c3o3ZnoxNzBuM2pwOWFzbnVoYWVrIn0.hwEd33-23eMeNEoPWL5lgA';
-
-                                                var map = new mapboxgl.Map({
-                                                    container: test[getArticle],
-                                                    style: 'mapbox://styles/mapbox/light-v10',
-                                                    center: [lat, lng],
-                                                    zoom: 14
-                                                });
-                                                new mapboxgl.Marker({ color: 'black' })
-                                                    .setLngLat([lat, lng])
-                                                    .addTo(map);
-
-
-
-                                            </script>
-                                        </article>
-                                    </div>
-
-
-                                    <% } %>
-                                        <% } else { %>
-                                            <h1>No posts found.</h1>
-                                            <% } %>
-
+                                        <% } %>
+                                            <% } else { %>
+                                                <h1>No posts found.</h1>
+                                                <% } %>
 
                 </div>
             </div>
