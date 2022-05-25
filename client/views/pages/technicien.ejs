@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Bornes - Chargeon</title>
+    <meta name="description" content="Description">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <link rel="icon" href="../assets/img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/libs.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="preload" href="../../assets/fonts/istok-web-v15-latin/istok-web-v15-latin-regular.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/istok-web-v15-latin/istok-web-v15-latin-700.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/montserrat-v15-latin/montserrat-v15-latin-700.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <link rel="preload" href="../../assets/fonts/montserrat-v15-latin/montserrat-v15-latin-600.woff2" as="font"
+        type="font/woff2" crossorigin>
+
+    <link rel="preload" href="../../assets/fonts/material-icons/material-icons.woff2" as="font" type="font/woff2"
+        crossorigin>
+    <link rel="preload" href="../../assets/fonts/material-icons/material-icons-outlined.woff2" as="font"
+        type="font/woff2" crossorigin>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+
+<body>
+
+
+    <main class="main">
+        <!-- Begin header -->
+        <header class="header">
+            <%- include('partials/header'); %>
+        </header>
+
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-heading heading-center">
+
+                            <h1>Techniciens</h1>
+                            <br>
+                            <br>
+                            <table>
+
+                                <thead>
+                                    <tr>
+
+                                        <th>Id</th>
+                                        <th>Nom</th>
+                                        <th>Prénom</th>
+                                        <th>Téléphone</th>
+                                        <th>Type d'habilitation(s)</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <form action="/api/technicien/AddTechnicien" method="post">
+                                        <tr>
+                                            <td>A.I</td>
+                                            <td>
+                                                <div class="form-field">
+                                                    <label for="contact-name" class="form-field-label">Nom</label>
+                                                    <input type="text" class="form-field-input" name="nom" value=""
+                                                        autocomplete="off" required="required" id="contact-name">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-field">
+                                                    <label for="contact-name" class="form-field-label">Prénom</label>
+                                                    <input type="text" class="form-field-input" name="prenom" value=""
+                                                        autocomplete="off" required="required" id="contact-name">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-field">
+                                                    <label for="contact-name" class="form-field-label">Téléphone</label>
+                                                    <input type="text" class="form-field-input" name="telephone"
+                                                        value="" autocomplete="off" required="required"
+                                                        id="contact-name">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-field">
+                                                    <label for="contact-name" class="form-field-label">Type
+                                                        d'habilitation(s)</label>
+                                                    <select name="type" autocomplete="off" required="required"
+                                                        id="contact-name">
+                                                        <option value="">Choisir un type de tension</option>
+                                                        <option value="Aucun">Aucune</option>
+                                                        <option value="Basse Tension">Basse Tension</option>
+                                                        <option value="Haute Tension">Haute Tension</option>
+
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td>
+
+
+                                                <button class="form-field-input"><span>Valider</span></button>
+
+
+                                            </td>
+                                        </tr>
+                                    </form>
+                                    <% techniciens.forEach((technicien , index)=>{ %>
+
+
+                                        <tr>
+                                            <th>
+                                                <p>
+                                                    <%= technicien._id %>
+                                                </p>
+                                            </th>
+                                            <th>
+                                                <p>
+                                                    <%= technicien.nom %>
+                                                </p>
+                                            </th>
+                                            <th>
+                                                <p>
+                                                    <%= technicien.prenom %>
+                                                </p>
+                                            </th>
+                                            <th>
+                                                <p>
+                                                    <%= technicien.telephone %>
+                                                </p>
+                                            </th>
+                                            <th>
+                                                <p>
+                                                    <%= technicien.type %>
+                                                </p>
+                                            </th>
+
+                                            <th>
+                                                <div style="display: flex; flex-direction : rows; gap: 10px;">
+                                                    <form action="api/technicien/deleteTechnicien/<%= technicien._id%>"
+                                                        method="post">
+                                                        <button class="borne">
+                                                            <img src="../../assets/img/poubelle.svg" alt=""
+                                                                class="borne-icone">
+                                                        </button>
+                                                    </form>
+
+                                                    <button class="borne" id="openUpdate">
+                                                        <img src="../../assets/img/crayon.svg" alt=""
+                                                            class="borne-icone">
+                                                    </button>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                        <% }); %>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </main>
+
+    <script src="../assets/libs/jquery/jquery.min.js"></script>
+    <script src="../assets/libs/lozad/lozad.min.js"></script>
+    <script src="../assets/libs/device/device.js"></script>
+    <script src="../assets/libs/ScrollToFixed/jquery-scrolltofixed-min.js"></script>
+    <script src="../assets/libs/spincrement/jquery.spincrement.min.js"></script>
+    <script src="../assets/libs/jquery-validation-1.19.3/jquery.validate.min.js"></script>
+    <script src="../assets/js/custom.js"></script>
+
+</body>
+
+</html>

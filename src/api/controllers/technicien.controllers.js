@@ -29,11 +29,10 @@ module.exports.addTechnicien = async(req , res) =>{
         nom : req.body.nom,
         prenom : req.body.prenom,
         telephone : req.body.telephone,
-        habilitationB : req.body.habilitationB,
-        habilitationH : req.body.habilitationH,
+        type : req.body.type
     })
     technicienModels.create(addTechnicien , (err, technicien)=>{
-        if (!err) res.json({technicien : "create successful", technicien});
+        if (!err) return res.redirect('/technicien');
         else return res.status(400).send("probleme de creation");
     })
 };

@@ -27,17 +27,10 @@ const technicienrSchema = new mongoose.Schema({
         min : 1,
         max : 50
     },
-    habilitationB : {
+    type : {
         type : String,
         required : false,
-        min : 0,
-        max : 3
-    },
-    habilitationH : {
-        type : String,
-        required : false,
-        min : 0,
-        max : 3
+        
     }
 });
 

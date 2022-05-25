@@ -1,4 +1,5 @@
 client -> id, nom, prenom, devis = ajoute une borne
 technicien -> id, nom , prenom , type d'habilitation
 borne -> id, localisation, adresse, type
-ticket -> id, type de panne 
+ticket -> id, type de panne , borne , technicien a attribuer
+button borne 

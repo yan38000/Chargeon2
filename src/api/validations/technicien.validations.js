@@ -23,13 +23,8 @@ const schemaTechnicienValidate = (addTechnicien) =>{
             //.min(1)
             //.max(20)
             .required(),
-        habilitationB : Joi.string()
-            .min(0)
-            .max(3),
-        habilitationH : Joi.string()
-            .min(0)
-            .max(3)
-        
+       type : Joi.string()
+            .required()
     });
     return schema.validate(addTechnicien);
 };
