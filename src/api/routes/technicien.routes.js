@@ -1,5 +1,5 @@
 /**
- * @description Route pour les technicien
+ * @description Route pour les techniciens
  * @yan38000
  */
 

@@ -9,7 +9,7 @@
 const bornesModels = require('../models/borne.models');
 const technicienModels = require('../models/technicien.models')
 /**
- * @description ajouter un technicien
+ * @description route connexion
  * @param {*} req 
  * @param {*} res 
  */
@@ -18,17 +18,17 @@ module.exports.globalLogin = async(req , res) =>{
 }
 
 /**
- * @description ajouter un technicien
+ * @description afficher tout les bornes
  * @param {*} req 
  * @param {*} res 
  */
  module.exports.globalBornes = async(req , res) =>{
     const data = await bornesModels.find().select();
-    res.status(200).render('borne' , {bornes : data});
+    res.status(200).render('borne'  , {bornes : data});
 }
 
 /**
- * @description ajouter un technicien
+ * @description afficher id bornes
  * @param {*} req 
  * @param {*} res 
  */
@@ -37,23 +37,44 @@ module.exports.globalLogin = async(req , res) =>{
     res.status(200).render('Addborne' , {bornes : data});
 }
 
+module.exports.globalBorneUpdate = async(req , res) =>{
+    res.render('ticket')
+
+}
+
 /**
- * @description ajouter un technicien
+ * @description afficher tout les techniciens
  * @param {*} req 
  * @param {*} res 
  */
  module.exports.globalTechnicien = async(req , res) =>{
     const allTechnicien = await technicienModels.find().select();
-    res.status(200).render('technicien' , {techniciens : allTechnicien});
+    res.status(200).render('technicien'  , {techniciens : allTechnicien});
 
 }
 
+
 /**
- * @description ajouter un technicien
+ * @description afficher tout les tickets
  * @param {*} req 
  * @param {*} res 
  */
- module.exports.globalTicket = async(req , res) =>{
-    res.render('ticket')
+ async function getTechnicien(req , res, next){
+    const allTechnicien = await technicienModels.find().select();
+    res.status(200).render('ticket'  , {techniciens : allTechnicien});
+    next();
+} 
+
+ module.exports.globalTicket = async(req,res,next) =>{
+    //getTechnicien(req,res,next)
+    res.render('ticket');
 
 }
+
+
+    
+
+
+    
+
+

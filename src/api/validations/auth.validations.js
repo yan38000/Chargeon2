@@ -1,5 +1,5 @@
 /**
- * @description valider les donné rentrant dans la base de donnée
+ * @description valider les donné rentrant dans la base de donnée pour l'auth
  * @author @Yan38000
  */
 

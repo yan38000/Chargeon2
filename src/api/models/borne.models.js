@@ -29,4 +29,5 @@ const bornesSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Borne' , bornesSchema);
+var borneModelExport = mongoose.model('Borne' , bornesSchema)
+module.exports = borneModelExport;

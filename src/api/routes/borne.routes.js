@@ -1,5 +1,5 @@
 /**
- * @description route pour l'authentification
+ * @description route pour les bornes
  * @author @Yan38000
  */
 

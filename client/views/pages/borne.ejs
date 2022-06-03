@@ -90,7 +90,7 @@
 
 
                                 <div class="form-btn" style="justify-content: center;">
-                                    <button class="btn btn-w240 ripple"><span>Connexion</span></button>
+                                    <button class="btn btn-w240 ripple"><span>Valider</span></button>
                                 </div>
                             </form>
                             <br>
@@ -124,9 +124,9 @@
                                                         </a>
                                                     </h2>
                                                     <div class="news-item-desc">
-                                                        <p class="aa">Asynchronous functions are a good and bad thing in
-                                                            JavaScript.
+                                                        <p class="aa">Type : <%- bornes[i].type %>
                                                         </p>
+                                                        <p>Identifiant : <%- bornes[i]._id %></p>
                                                         <div style="display: flex; flex-direction : rows; gap: 10px;">
                                                             <form action="api/borne/deleteBorne/<%= bornes[i]._id%>"
                                                                 method="post">
@@ -136,10 +136,10 @@
                                                                 </button>
                                                             </form>
 
-                                                            <button class="borne" id="openUpdate">
+                                                            <a href="/borne/<%- bornes[i]._id %>"><button class="borne" id="openUpdate">
                                                                 <img src="../../assets/img/crayon.svg" alt=""
                                                                     class="borne-icone">
-                                                            </button>
+                                                            </button></a>
                                                         </div>
 
 

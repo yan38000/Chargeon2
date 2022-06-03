@@ -34,7 +34,7 @@ const bornesModels = require('../models/borne.models');
  */
  module.exports.AllBornes = async(req , res) =>{
     const data = await bornesModels.find().select();
-    res.status(200).render('bornes' , {bornes : data});
+    res.status(200).json(data || {bornes  : "error aucun id trouvé"});
 };
 
 /**
